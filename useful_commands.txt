@@ -1,0 +1,27 @@
+
+compile kernel module: make
+clean up the directory after compiling: make clean
+insert module named mymodule: sudo insmod my_module.ko
+remove module named mymodule: sudo rmmod my_module
+view kernel logs:
+  dmesg
+  or:
+  tail -f /var/log/kern.log
+
+see if device has been registered:
+  cat /proc/devices 
+  
+register file device:
+  cd /dev
+  sudo mknod <device_name> <device_type> <major_number> <minor_number>
+  (example: sudo mknod mydevice c 509 0)
+  (c is character device, there can also be block device type)
+  
+sample Makefile for module name mymodule:
+obj-m += mymodule.o
+
+all:
+        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
+
+clean:
+        make -C /lib/modules/$(shell uname -r)/build M=$(PWD) clean
