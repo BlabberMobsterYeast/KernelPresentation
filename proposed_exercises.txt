@@ -1,0 +1,26 @@
+exercises:
+ex0:
+Create a kernel modules that:
+Prints message to kernel log when loaded and unloaded.
+Proof of completion:
+Kernel log must contain custom message after loading and unloading the module.
+Opening kernel log: "tail -f /var/log/kern.log"
+
+ex1:
+Create a kernel module that:
+registers a character device.
+Proof of completion:
+Custom device name should appear when listing devices using "cat /proc/devices"
+
+ex2:
+Create a kernel module that:
+Registers a character device.
+Maps the device to a file in /dev.
+allows for reading custom text from the file with "cat /dev/mydevice".
+Proof of completion:
+Command "cat /dev/mydevice" should give output of custom messages.
+
+ex3: Same as ex2 except for the fact that device should output random integer from 0 to 9
+
+
+
