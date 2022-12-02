@@ -14,13 +14,27 @@ Custom device name should appear when listing devices using "cat /proc/devices"
 
 ex2:
 Create a kernel module that:
-Registers a character device.
-Maps the device to a file in /dev.
-allows for reading custom text from the file with "cat /dev/mydevice".
+Registers a character device that can be mapped to a file using mknod command.
+Allows for reading custom text from the file with "cat /dev/mydevice".
 Proof of completion:
 Command "cat /dev/mydevice" should give output of custom messages.
 
+ex2b:
+Create a kernel module that:
+Registers a character device, maps the character device to a file (without having to execute mknod).
+Proof of completion: new character file exist under /dev.
+
 ex3: Same as ex2 except for the fact that device should output random integer from 0 to 9
+
+ex4: create a kernel module that:
+registers a character device,
+then map the character device to file
+file can be read or written into
+The text gets stored and is printed when device is read. Writing again replaces the stored text.
+example: 
+$ echo "hello" >> deviceFile
+$ cat deviceFile
+hello
 
 
 
