@@ -36,5 +36,9 @@ $ echo "hello" >> deviceFile
 $ cat deviceFile
 hello
 
+ssh root@139.162.151.114
+ssh root@172.105.68.142
+
+password: T5uUDS47
 
 
